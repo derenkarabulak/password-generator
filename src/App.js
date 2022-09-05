@@ -5,8 +5,14 @@ import "./index.css";
 const App = () => {
 
   const [password, setPassword] = useState('');
+  const [includeNumbers, setIncludeNumbers] = useState(false);
+  const [includeUppercase, setIncludeUppercase] = useState(false);
+  const [includeLowercase, setIncludeLowercase] = useState(false);
+  const [includeCharacters, setIncludeCharacters] = useState(false);
 
+  const handleClick = () => {
 
+  }
 
   return (
     <div>
@@ -35,10 +41,11 @@ const App = () => {
         </div>
         <div className="form-group">
           <FormGroup>
-            <FormControlLabel sx={{ color: '#9C2D41' }} control={<Checkbox style={{ color: '#9C2D41'}} />} label="Numbers" />
-            <FormControlLabel sx={{ color: '#9C2D41' }} control={<Checkbox style={{ color: '#9C2D41'}} />} label="Uppercase Letters" />
-            <FormControlLabel sx={{ color: '#9C2D41' }} control={<Checkbox style={{ color: '#9C2D41'}} />} label="Lowercase Letters" />
-            <FormControlLabel sx={{ color: '#9C2D41' }} control={<Checkbox style={{ color: '#9C2D41'}} />} label="Characters" />
+            <FormControlLabel sx={{ color: '#9C2D41' }} control={<Checkbox checked={includeNumbers} style={{ color: '#9C2D41'}} />} label="Numbers" />
+            <FormControlLabel sx={{ color: '#9C2D41' }} control={<Checkbox checked={includeUppercase} style={{ color: '#9C2D41'}} />} label="Uppercase Letters" />
+            <FormControlLabel sx={{ color: '#9C2D41' }} control={<Checkbox checked={includeLowercase} style={{ color: '#9C2D41'}} />} label="Lowercase Letters" />
+            <FormControlLabel sx={{ color: '#9C2D41' }} control={<Checkbox checked={includeCharacters} style={{ color: '#9C2D41'}} />} label="Characters" />
+            <button className="btn">Generate</button>
           </FormGroup>
         </div>
       </div>
