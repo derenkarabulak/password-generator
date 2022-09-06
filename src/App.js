@@ -1,8 +1,23 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import { AppBar, Checkbox, Button, IconButton, Box, Typography, Toolbar, FormGroup, FormControlLabel, TextField, Card, CardActions, CardContent } from "@mui/material";
+import { 
+  AppBar, 
+  Checkbox, 
+  IconButton, 
+  Box, 
+  Typography, 
+  Toolbar, 
+  FormGroup, 
+  FormControlLabel, 
+  TextField, 
+  Card, 
+  CardContent } from "@mui/material";
 import "./index.css";
-import { lowercaseLetters, numbers, speacialCharacters, uppercaseLetters } from "./Character";
+import { 
+  lowercaseLetters, 
+  numbers, 
+  speacialCharacters, 
+  uppercaseLetters } from "./Character";
 import { copySuccess, copyFail } from "./message";
 
 const App = () => {
@@ -74,6 +89,19 @@ const App = () => {
     }
   }
 
+  const handleCopy = () => {
+    if(password === "") {
+      notify(copyFail, true)
+    } else {
+      copyToClipboard(password)
+      notify(copySuccess, true)
+    }
+  }
+
+  const copyToClipboard = (password) => {
+    navigator.clipboard.writeText(password)
+  }
+ 
   return (
     <div>
       <div>
@@ -111,12 +139,13 @@ const App = () => {
             </FormGroup>
           </div>
           <div className="result">
-            <Card sx= {{ minWidth: 250 }}>
+            <Card className="card" sx= {{ minWidth: 250 }}>
               <CardContent>
                 <Typography>Result: </Typography>
                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                   {password}
                 </Typography>
+                <button onClick={handleCopy}>Copy</button>
               </CardContent>
             </Card>
           </div>

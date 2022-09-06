@@ -28,8 +28,8 @@ body {
   margin-top: 40px;
   position: absolute;
   padding: 20px;
-  right: 35%;
-  left: 25%;
+  right: 50%;
+  left: auto;
 }
 
 .btn {
@@ -55,8 +55,12 @@ body {
   position: absolute;
   margin-left: 60px;
   margin-right: 60px;
-  margin-top: 40px;
+  margin-top: 110px;
   padding: 10px;
   right: auto;
   left: 50%;
+}
+
+.contents {
+  align-items: center;
 }
